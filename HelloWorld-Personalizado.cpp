@@ -2,8 +2,16 @@
 //
 
 #include <iostream>
+#include <chrono>
+#include <ctime>    
+
+using namespace std;
+using namespace std::chrono;
 
 int main()
 {
-    std::cout << "Hola Mundo. Saludo de Jaime Torres, hoy 21-enero-2025";
+    auto end = std::chrono::system_clock::now();
+    std::time_t end_time = std::chrono::system_clock::to_time_t(end);
+
+    std::cout << "Hola Mundo. Saludo de Jaime Torres, hoy " << std::ctime(&end_time);
 }
